@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste d'auteurs</title>
+</head>
+<body>
+Liste d'auteurs<br>
+
+    {% if authors is not empty %}
+        
+            {% for author in authors %}
+                
+                    <img src="{{ asset(author.picture) }}" alt="{{ author.username }}" width="100">
+                    <strong>{{ author.username|upper }}</strong><br>
+                    email: {{ author.email }}<br>
+                    livres: {{ author.nb_books }}<br>
+                    <a href="{{ path('author_details', { id: author.id }) }}">detail</a><br>
+                
+            {% endfor %}
+        
+
+        <p>Livres total: {{ authors | map(a => a.nb_books) | reduce((carry, item) => carry + item) }}</p>
+
+    {% else %}
+        Pas d'auteurs
+    {% endif %}
+    auteurs total: {{ authors|length }}
+    
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ author.username }} - Details</title>
+</head>
+<body>
+    <h1>{{ author.username }}</h1>
+    <img src="{{ asset(author.picture) }}" alt="{{ author.username }}" width="200">
+    <p>email: {{ author.email }}</p>
+    <p>num livres: {{ author.nb_books }}</p>
+</body>
+</html>
